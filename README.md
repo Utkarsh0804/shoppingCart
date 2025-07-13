@@ -46,3 +46,7 @@ The following functions are used to manage the cart state:
 -   **`removeFromCart(productId)`**: Removes a product from the cart.
 
 The state and the functions to manipulate it are passed down to the child components as props.
+
+# Deployed on vercel
+## Please click on the below URL to visit the app
+### url : - shopping-cart-8dso2lnh2-utkarsh-sahus-projects-62eef018.vercel.app
