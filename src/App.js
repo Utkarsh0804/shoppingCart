@@ -26,8 +26,10 @@ function App() {
           item.id === product.id ? { ...item, quantity: item.quantity + 1 } : item
         )
       );
+      alert(`Added ${product.name} to the cart.`);
     } else {
       setCartItems([...cartItems, { ...product, quantity: 1, discounted_price: product.actual_price }]);
+      alert(`Added ${product.name} to the cart.`);
     }
   };
 
