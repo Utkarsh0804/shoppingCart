@@ -10,7 +10,7 @@ const ProductItem = ({ product, addToCart }) => {
         <p className="text-gray-500 mt-2">{description}</p>
       </div>
       <div className="p-5 border-t border-gray-200">
-        <div className="text-2xl font-bold text-gray-900">Rs {actual_price.toFixed(2)}</div>
+        <div className="text-2xl font-bold text-gray-900">₹ {actual_price.toFixed(2)}</div>
         <button
           onClick={() => addToCart(product)}
           className="w-full bg-blue-900 text-white px-4 py-2 rounded hover:bg-blue-700 transition-colors duration-300"

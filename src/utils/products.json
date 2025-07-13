@@ -11,13 +11,13 @@
     "name": "Mechanical Keyboard",
     "description": "A durable mechanical keyboard with customizable RGB lighting.",
     "actual_price": 80.00,
-    "offer_percentage": 15
+    "offer_percentage": 10
   },
   {
     "id": 3,
     "name": "USB-C Hub",
     "description": "A versatile USB-C hub with multiple ports.",
     "actual_price": 40.00,
-    "offer_percentage": 5
+    "offer_percentage": 10
   }
 ]
