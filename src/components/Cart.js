@@ -35,22 +35,32 @@ const Cart = ({
 
   const validateForm = () => {
     const newErrors = {};
-    if (!formData.name.trim()) newErrors.name = "Name is required";
-    if (!formData.phone.trim()) {
-      newErrors.phone = "Phone is required";
-    } else if (!/^\d{10}$/.test(formData.phone)) {
-      newErrors.phone = "Phone must be 10 digits";
+    if (!formData.name.trim()) {
+      newErrors.name = "Name is required";
+    } else if (!/^[a-zA-Z\s]+$/.test(formData.name)) {
+      newErrors.name = "Name should only contain letters and spaces";
     }
 
-    if (!formData.address.trim()) newErrors.address = "Address is required";
+    if (!formData.phone.trim()) {
+      newErrors.phone = "Phone Number is required";
+    } else if (!/^\d{10}$/.test(formData.phone)) {
+      newErrors.phone = "Phone Number must be exactly 10 digits";
+    }
+
+    if (!formData.address.trim()) {
+      newErrors.address = "Address is required";
+    }
     if (!formData.pincode.trim()) {
       newErrors.pincode = "Pincode is required";
     } else if (!/^\d{6}$/.test(formData.pincode)) {
-      newErrors.pincode = "Pincode must be 6 digits";
+      newErrors.pincode = "Pincode must be exactly 6 digits";
     }
 
-    if (!formData.city.trim()) newErrors.city = "City is required";
-
+    if (!formData.city.trim()) {
+      newErrors.city = "City is required";
+    } else if (!/^[a-zA-Z\s]+$/.test(formData.city)) {
+      newErrors.city = "City should only contain letters and spaces";
+    }
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
@@ -86,16 +96,14 @@ const Cart = ({
       ></div>
 
       <div className="fixed inset-y-0 right-0 w-full max-w-md md:max-w-lg bg-white shadow-xl z-50 flex flex-col rounded-l-md">
-        
-       {/* Header */}
-         <div className="flex justify-between items-center p-4 border-b">
+        {/* Header */}
+        <div className="flex justify-between items-center p-4 border-b">
           <h2 className="text-2xl font-bold">Shopping Cart</h2>
           <button onClick={onClose} className="text-2xl font-bold">
             &times;
           </button>
         </div>
 
-        
         <div className="flex-grow overflow-y-auto p-4 space-y-4">
           {cartItems.length === 0 ? (
             <p className="text-center text-gray-500 mt-4">
@@ -112,12 +120,18 @@ const Cart = ({
               ].map(({ name, placeholder }) => (
                 <div key={name}>
                   <input
-                    type="text"
+                    type={
+                      name === "phone" || name === "pincode" ? "tel" : "text"
+                    }
                     name={name}
                     value={formData[name]}
                     onChange={handleChange}
                     placeholder={placeholder}
+                    required
                     className="w-full p-2 border rounded"
+                    maxLength={
+                      name === "phone" ? 10 : name === "pincode" ? 6 : undefined
+                    }
                   />
                   {errors[name] && (
                     <p className="text-red-500 text-sm">{errors[name]}</p>
@@ -155,7 +169,7 @@ const Cart = ({
           )}
         </div>
 
-{/* Footer */}
+        {/* Footer */}
         {cartItems.length > 0 && !showForm && (
           <div className="p-4 border-t bg-white">
             <h3 className="text-xl font-bold text-right">
