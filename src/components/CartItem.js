@@ -10,10 +10,10 @@ const CartItem = ({ item, updateQuantity, removeFromCart, applyOffer }) => {
         <h4 className="font-bold text-gray-900 dark:text-white">{name}</h4>
         <div className="flex items-center space-x-2 mt-1">
           <p className={`font-bold ${offerApplied ? 'text-green-500' : 'text-gray-800 dark:text-gray-200'}`}>
-            ${discounted_price.toFixed(2)}
+            Rs {discounted_price.toFixed(2)}
           </p>
           {offerApplied && (
-            <p className="text-gray-500 line-through text-sm">${actual_price.toFixed(2)}</p>
+            <p className="text-gray-500 line-through text-sm">Rs {actual_price.toFixed(2)}</p>
           )}
         </div>
       </div>
