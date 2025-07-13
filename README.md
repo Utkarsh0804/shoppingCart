@@ -34,6 +34,7 @@ The application is divided into the following components:
 -   **`ProductItem.js`**: Displays the details of a single product.
 -   **`Cart.js`**: Displays the items in the shopping cart.
 -   **`CartItem.js`**: Displays the details of a single item in the cart.
+-   **`SuccessModal.js`**: Displays a modal for successful checkout after successfully submitted the form. 
 
 ### State Management
 
@@ -46,6 +47,11 @@ The following functions are used to manage the cart state:
 -   **`removeFromCart(productId)`**: Removes a product from the cart.
 
 The state and the functions to manipulate it are passed down to the child components as props.
+
+## I've also added few additional functionalities
+
+-   **`removeOffer(productId)`**: Removes the applied offers.
+-   **`setShowSuccessModal`**: Will show a modal after successfully submitted the form
 
 # Deployed on vercel
 ## Please click on the below URL to visit the app
