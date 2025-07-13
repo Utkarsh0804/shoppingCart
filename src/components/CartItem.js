@@ -17,7 +17,7 @@ const CartItem = ({ item, updateQuantity, removeFromCart, applyOffer, removeOffe
       </div>
 
       <div className="flex flex-col sm:flex-row sm:items-center sm:space-x-4 space-y-2 sm:space-y-0">
-        <div className="flex items-center border border-gray-300 rounded overflow-hidden">
+        <div className="flex items-center border border-gray-300 rounded overflow-hidden w-fit">
           <button
             onClick={() => updateQuantity(id, quantity - 1)}
             className="px-3 py-1 text-lg text-gray-700 hover:bg-gray-200 transition"
