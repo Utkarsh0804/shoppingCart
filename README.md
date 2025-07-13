@@ -39,6 +39,9 @@ The application is divided into the following components:
 
 The application state is managed using the `useState` hook in the `App.js` component. The `cartItems` state is an array of objects, where each object represents a product in the cart.
 
+# Deployed on vercel
+## Please click on the below URL to visit the app
+### url : - shopping-cart-8dso2lnh2-utkarsh-sahus-projects-62eef018.vercel.app
 The following functions are used to manage the cart state:
 
 -   **`addToCart(product)`**: Adds a product to the cart or increments its quantity if it already exists.
