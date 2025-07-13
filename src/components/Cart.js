@@ -34,8 +34,9 @@ const Cart = ({ isOpen, onClose, cartItems, updateQuantity, removeFromCart, appl
         {cartItems.length > 0 && (
           <div className="p-4 border-t ">
             <h3 className="text-xl font-bold text-right">Total: Rs {totalPrice.toFixed(2)}</h3>
-            <button className="w-full mt-4 bg-blue-500 text-white py-2 rounded hover:bg-blue-600">
+            <button onClick={onClose} className="w-full mt-4 bg-blue-500 text-white py-2 rounded hover:bg-blue-600">
               Checkout
+          
             </button>
           </div>
         )}
