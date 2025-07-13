@@ -32,6 +32,7 @@ function App() {
   };
 
   const updateQuantity = (productId, newQuantity) => {
+    if(newQuantity < 1) {return removeFromCart(productId);}
     if (newQuantity >= 1) {
       setCartItems(
         cartItems.map((item) =>
@@ -57,6 +58,15 @@ function App() {
       })
     );
   };
+  const removeOffer = (id) => {
+  setCartItems(prevItems =>
+    prevItems.map(item =>
+      item.id === id
+        ? { ...item, discounted_price: item.actual_price }
+        : item
+    )
+  );
+};
 
   const cartCount = cartItems.reduce((count, item) => count + item.quantity, 0);
 
@@ -78,9 +88,11 @@ function App() {
         isOpen={isCartOpen}
         onClose={() => setIsCartOpen(false)}
         cartItems={cartItems}
+        setCartItems={setCartItems}
         updateQuantity={updateQuantity}
         removeFromCart={removeFromCart}
         applyOffer={applyOffer}
+        removeOffer={removeOffer}
       />
     </div>
   );
